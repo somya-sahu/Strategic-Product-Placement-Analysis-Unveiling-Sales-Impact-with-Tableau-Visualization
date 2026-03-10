@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strategic Product Placement Analysis</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <h1>Strategic Product Placement Analysis</h1>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/dashboard">Dashboard</a></li>
+                <li><a href="/story">Story</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <section class="hero">
+            <h2>Unveiling Sales Impact with Tableau Visualization</h2>
+            <p>Analyze product positioning strategies and their impact on sales performance</p>
+        </section>
+
+        <section class="summary-cards">
+            <div class="card">
+                <h3>Total Products</h3>
+                <p id="total-products">-</p>
+            </div>
+            <div class="card">
+                <h3>Avg Sales Growth</h3>
+                <p id="avg-sales-growth">-</p>
+            </div>
+            <div class="card">
+                <h3>Avg Revenue Growth</h3>
+                <p id="avg-revenue-growth">-</p>
+            </div>
+            <div class="card">
+                <h3>Total Revenue Increase</h3>
+                <p id="total-revenue">-</p>
+            </div>
+        </section>
+
+        <section class="top-products">
+            <h3>Top 10 Performing Products</h3>
+            <table id="products-table">
+                <thead>
+                    <tr>
+                        <th>Product Name</th>
+                        <th>Category</th>
+                        <th>Sales Growth %</th>
+                        <th>Revenue Growth %</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </section>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

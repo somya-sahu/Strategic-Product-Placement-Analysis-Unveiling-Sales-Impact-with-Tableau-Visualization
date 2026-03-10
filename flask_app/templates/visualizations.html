@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Visualizations - Strategic Product Placement Analysis</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f5f5f5; }
+        .navbar { background: #2c3e50; color: white; padding: 1.5rem; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .navbar h1 { margin-bottom: 0.5rem; font-size: 1.8rem; }
+        .nav-links { list-style: none; display: flex; gap: 2rem; flex-wrap: wrap; }
+        .nav-links a { color: white; text-decoration: none; transition: color 0.3s; }
+        .nav-links a:hover { color: #3498db; }
+        .container { max-width: 1400px; margin: 0 auto; padding: 2rem; }
+        h2 { color: #2c3e50; margin: 2rem 0 1rem 0; font-size: 1.8rem; border-bottom: 3px solid #3498db; padding-bottom: 0.5rem; }
+        .section-title { color: #34495e; margin: 1.5rem 0 1rem 0; font-size: 1.3rem; }
+        .charts-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(500px, 1fr)); gap: 2rem; margin: 2rem 0; }
+        .chart-card { background: white; padding: 1.5rem; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); transition: transform 0.3s; }
+        .chart-card:hover { transform: translateY(-5px); box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+        .chart-card h3 { color: #2c3e50; margin-bottom: 1rem; text-align: center; font-size: 1.1rem; }
+        canvas { max-height: 400px; }
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin: 2rem 0; }
+        .stat-card { background: white; padding: 1.5rem; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); text-align: center; border-left: 4px solid #3498db; }
+        .stat-card h4 { color: #34495e; margin-bottom: 0.5rem; font-size: 0.9rem; text-transform: uppercase; }
+        .stat-card .value { font-size: 2rem; color: #3498db; font-weight: bold; }
+        .stat-card .unit { color: #7f8c8d; font-size: 0.9rem; }
+        .description { color: #555; line-height: 1.6; margin: 1rem 0; }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <h1>Strategic Product Placement Analysis</h1>
+        <ul class="nav-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/visualizations">Visualizations</a></li>
+            <li><a href="/dashboard">Dashboard</a></li>
+            <li><a href="/story">Story</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h2>📊 Data Visualizations</h2>
+        <p class="description">Comprehensive data visualization using multiple chart types including pie charts, bar charts, line charts, scatter plots, and more to analyze product placement impact on sales.</p>
+
+        <!-- Key Statistics -->
+        <h3 class="section-title">Key Performance Indicators</h3>
+        <div class="stats-grid">
+            <div class="stat-card">
+                <h4>Total Products</h4>
+                <div class="value" id="stat-products">30</div>
+                <div class="unit">analyzed</div>
+            </div>
+            <div class="stat-card">
+                <h4>Avg Sales Growth</h4>
+                <div class="value" id="stat-sales">43.37%</div>
+                <div class="unit">increase</div>
+            </div>
+            <div class="stat-card">
+                <h4>Avg Revenue Growth</h4>
+                <div class="value" id="stat-revenue">43.37%</div>
+                <div class="unit">increase</div>
+            </div>
+            <div class="stat-card">
+                <h4>Total Revenue Increase</h4>
+                <div class="value" id="stat-total">$1.03M</div>
+                <div class="unit">total</div>
+            </div>
+        </div>
+
+        <!-- Pie Charts Section -->
+        <h3 class="section-title">📈 Pie Chart Visualizations</h3>
+        <div class="charts-grid">
+            <div class="chart-card">
+                <h3>Sales Growth by Category</h3>
+                <canvas id="categoryPie"></canvas>
+            </div>
+            <div class="chart-card">
+                <h3>Revenue Distribution by Region</h3>
+                <canvas id="regionPie"></canvas>
+            </div>
+            <div class="chart-card">
+                <h3>Media Type Performance</h3>
+                <canvas id="mediaPie"></canvas>
+            </div>
+            <div class="chart-card">
+                <h3>Consumer Age Group Distribution</h3>
+                <canvas id="agePie"></canvas>
+            </div>
+        </div>
+
+        <!-- Bar Charts Section -->
+        <h3 class="section-title">📊 Bar Chart Visualizations</h3>
+        <div class="charts-grid">
+            <div class="chart-card">
+                <h3>Sales Performance by Category</h3>
+                <canvas id="categoryBar"></canvas>
+            </div>
+            <div class="chart-card">
+                <h3>Revenue Growth by Region</h3>
+                <canvas id="regionBar"></canvas>
+            </div>
+            <div class="chart-card">
+                <h3>Product Performance Ranking</h3>
+                <canvas id="productBar"></canvas>
+            </div>
+            <div class="chart-card">
+                <h3>Placement Type Effectiveness</h3>
+                <canvas id="placementBar"></canvas>
+            </div>
+        </div>
+
+        <!-- Line Charts Section -->
+        <h3 class="section-title">📉 Line Chart Visualizations</h3>
+        <div class="charts-grid">
+            <div class="chart-card">
+                <h3>Sales Growth Trend</h3>
+                <canvas id="trendLine"></canvas>
+            </div>
+            <div class="chart-card">
+                <h3>Revenue Growth Trend</h3>
+                <canvas id="revenueLine"></canvas>
+            </div>
+        </div>
+
+        <!-- Scatter Plot Section -->
+        <h3 class="section-title">🎯 Scatter Plot Visualizations</h3>
+        <div class="charts-grid">
+            <div class="chart-card">
+                <h3>Visibility vs Sales Growth</h3>
+                <canvas id="scatterPlot"></canvas>
+            </div>
+            <div class="chart-card">
+                <h3>Traffic Score vs Revenue Growth</h3>
+                <canvas id="scatterTraffic"></canvas>
+            </div>
+        </div>
+
+        <!-- Doughnut Charts Section -->
+        <h3 class="section-title">🍩 Doughnut Chart Visualizations</h3>
+        <div class="charts-grid">
+            <div class="chart-card">
+                <h3>Brand Distribution</h3>
+                <canvas id="brandDoughnut"></canvas>
+            </div>
+            <div class="chart-card">
+                <h3>Gender Demographics</h3>
+                <canvas id="genderDoughnut"></canvas>
+            </div>
+        </div>
+
+        <!-- Radar Chart Section -->
+        <h3 class="section-title">⭐ Radar Chart Visualizations</h3>
+        <div class="charts-grid">
+            <div class="chart-card">
+                <h3>Performance Metrics Comparison</h3>
+                <canvas id="radarChart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const chartColors = ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0', '#9966FF', '#FF9F40', '#FF6384', '#C9CBCF'];
+        const chartOptions = {
+            responsive: true,
+            maintainAspectRatio: true,
+            plugins: {
+                legend: { position: 'bottom', labels: { padding: 15, font: { size: 12 } } },
+                tooltip: { backgroundColor: 'rgba(0,0,0,0.8)', padding: 12, titleFont: { size: 13 }, bodyFont: { size: 12 } }
+            }
+        };
+
+        // PIE CHARTS
+        // Sales Growth by Category
+        new Chart(document.getElementById('categoryPie'), {
+            type: 'pie',
+            data: {
+                labels: ['Electronics', 'Accessories', 'Beverages', 'Food', 'Apparel', 'Beauty', 'Footwear'],
+                datasets: [{
+                    data: [45.5, 62.5, 38.2, 42.1, 62.5, 64.14, 75.3],
+                    backgroundColor: chartColors,
+                    borderColor: '#fff',
+                    borderWidth: 2
+                }]
+            },
+            options: { ...chartOptions, plugins: { ...chartOptions.plugins, tooltip: { ...chartOptions.plugins.tooltip, callbacks: { label: (ctx) => ctx.label + ': ' + ctx.parsed + '%' } } } }
+        });
+
+        // Revenue Distribution by Region
+        new Chart(document.getElementById('regionPie'), {
+            type: 'pie',
+            data: {
+                labels: ['North America', 'Europe', 'Asia'],
+                datasets: [{
+                    data: [35, 30, 35],
+                    backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
+                    borderColor: '#fff',
+                    borderWidth: 2
+                }]
+            },
+            options: chartOptions
+        });
+
+        // Media Type Performance
+        new Chart(document.getElementById('mediaPie'), {
+            type: 'pie',
+            data: {
+                labels: ['TV Show', 'Movie'],
+                datasets: [{
+                    data: [55, 45],
+                    backgroundColor: ['#4BC0C0', '#9966FF'],
+                    borderColor: '#fff',
+                    borderWidth: 2
+                }]
+            },
+            options: chartOptions
+        });
+
+        // Age Group Distribution
+        new Chart(document.getElementById('agePie'), {
+            type: 'pie',
+            data: {
+                labels: ['18-24', '25-34', '35-44', '45-54'],
+                datasets: [{
+                    data: [20, 35, 30, 15],
+                    backgroundColor: ['#FF9F40', '#FF6384', '#36A2EB', '#FFCE56'],
+                    borderColor: '#fff',
+                    borderWidth: 2
+                }]
+            },
+            options: chartOptions
+        });
+
+        // BAR CHARTS
+        // Sales Performance by Category
+        new Chart(document.getElementById('categoryBar'), {
+            type: 'bar',
+            data: {
+                labels: ['Electronics', 'Accessories', 'Beverages', 'Food', 'Apparel', 'Beauty', 'Footwear'],
+                datasets: [{
+                    label: 'Sales Growth %',
+                    data: [45.5, 62.5, 38.2, 42.1, 62.5, 64.14, 75.3],
+                    backgroundColor: '#36A2EB',
+                    borderColor: '#2980b9',
+                    borderWidth: 1
+                }]
+            },
+            options: { ...chartOptions, indexAxis: 'y', scales: { x: { beginAtZero: true } } }
+        });
+
+        // Revenue Growth by Region
+        new Chart(document.getElementById('regionBar'), {
+            type: 'bar',
+            data: {
+                labels: ['North America', 'Europe', 'Asia'],
+                datasets: [{
+                    label: 'Revenue Growth %',
+                    data: [45, 42, 48],
+                    backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
+                    borderColor: '#333',
+                    borderWidth: 1
+                }]
+            },
+            options: { ...chartOptions, scales: { y: { beginAtZero: true } } }
+        });
+
+        // Top Products
+        new Chart(document.getElementById('productBar'), {
+            type: 'bar',
+            data: {
+                labels: ['Designer Bag', 'Drone', 'Camera', 'Lipstick', 'Jacket', 'Smart Watch', 'Sneakers', 'Jeans'],
+                datasets: [{
+                    label: 'Sales Growth %',
+                    data: [81.25, 69.35, 65.38, 64.14, 62.5, 56.36, 44.44, 46.43],
+                    backgroundColor: '#4BC0C0',
+                    borderColor: '#16a085',
+                    borderWidth: 1
+                }]
+            },
+            options: { ...chartOptions, indexAxis: 'y', scales: { x: { beginAtZero: true } } }
+        });
+
+        // Placement Type Effectiveness
+        new Chart(document.getElementById('placementBar'), {
+            type: 'bar',
+            data: {
+                labels: ['Visual'],
+                datasets: [{
+                    label: 'Effectiveness Score',
+                    data: [22.28],
+                    backgroundColor: '#9966FF',
+                    borderColor: '#6c3483',
+                    borderWidth: 1
+                }]
+            },
+            options: { ...chartOptions, scales: { y: { beginAtZero: true, max: 100 } } }
+        });
+
+        // LINE CHARTS
+        // Sales Growth Trend
+        new Chart(document.getElementById('trendLine'), {
+            type: 'line',
+            data: {
+                labels: ['Product 1', 'Product 5', 'Product 10', 'Product 15', 'Product 20', 'Product 25', 'Product 30'],
+                datasets: [{
+                    label: 'Sales Growth %',
+                    data: [45.5, 62.5, 38.2, 42.1, 62.5, 64.14, 75.3],
+                    borderColor: '#36A2EB',
+                    backgroundColor: 'rgba(54, 162, 235, 0.1)',
+                    borderWidth: 2,
+                    fill: true,
+                    tension: 0.4
+                }]
+            },
+            options: { ...chartOptions, scales: { y: { beginAtZero: true } } }
+        });
+
+        // Revenue Growth Trend
+        new Chart(document.getElementById('revenueLine'), {
+            type: 'line',
+            data: {
+                labels: ['Product 1', 'Product 5', 'Product 10', 'Product 15', 'Product 20', 'Product 25', 'Product 30'],
+                datasets: [{
+                    label: 'Revenue Growth %',
+                    data: [48, 60, 40, 45, 65, 62, 78],
+                    borderColor: '#FF6384',
+                    backgroundColor: 'rgba(255, 99, 132, 0.1)',
+                    borderWidth: 2,
+                    fill: true,
+                    tension: 0.4
+                }]
+            },
+            options: { ...chartOptions, scales: { y: { beginAtZero: true } } }
+        });
+
+        // SCATTER PLOTS
+        // Visibility vs Sales Growth
+        new Chart(document.getElementById('scatterPlot'), {
+            type: 'scatter',
+            data: {
+                datasets: [{
+                    label: 'Products',
+                    data: [
+                        {x: 9.2, y: 54.17}, {x: 4.5, y: 8.57}, {x: 9.8, y: 60}, {x: 8.1, y: 50},
+                        {x: 7.5, y: 48.98}, {x: 8.9, y: 30.77}, {x: 9.5, y: 81.25}, {x: 6.8, y: 40},
+                        {x: 7.2, y: 29.27}, {x: 9.1, y: 47.22}
+                    ],
+                    backgroundColor: '#36A2EB',
+                    borderColor: '#2980b9',
+                    borderWidth: 1,
+                    pointRadius: 6
+                }]
+            },
+            options: { ...chartOptions, scales: { x: { title: { display: true, text: 'Visibility Score' } }, y: { title: { display: true, text: 'Sales Growth %' } } } }
+        });
+
+        // Traffic Score vs Revenue Growth
+        new Chart(document.getElementById('scatterTraffic'), {
+            type: 'scatter',
+            data: {
+                datasets: [{
+                    label: 'Products',
+                    data: [
+                        {x: 8.5, y: 54.17}, {x: 7.2, y: 8.57}, {x: 9.1, y: 60}, {x: 8.8, y: 50},
+                        {x: 7.9, y: 48.98}, {x: 8.3, y: 30.77}, {x: 9.4, y: 81.25}, {x: 7.5, y: 40},
+                        {x: 8.1, y: 29.27}, {x: 8.7, y: 47.22}
+                    ],
+                    backgroundColor: '#FF6384',
+                    borderColor: '#c0392b',
+                    borderWidth: 1,
+                    pointRadius: 6
+                }]
+            },
+            options: { ...chartOptions, scales: { x: { title: { display: true, text: 'Traffic Score' } }, y: { title: { display: true, text: 'Revenue Growth %' } } } }
+        });
+
+        // DOUGHNUT CHARTS
+        // Brand Distribution
+        new Chart(document.getElementById('brandDoughnut'), {
+            type: 'doughnut',
+            data: {
+                labels: ['TechBrand', 'PowerFuel', 'TimeMaster', 'RunFast', 'FizzCo', 'LuxStyle', 'Others'],
+                datasets: [{
+                    data: [12, 8, 10, 11, 9, 13, 37],
+                    backgroundColor: chartColors,
+                    borderColor: '#fff',
+                    borderWidth: 2
+                }]
+            },
+            options: chartOptions
+        });
+
+        // Gender Demographics
+        new Chart(document.getElementById('genderDoughnut'), {
+            type: 'doughnut',
+            data: {
+                labels: ['Male', 'Female'],
+                datasets: [{
+                    data: [55, 45],
+                    backgroundColor: ['#36A2EB', '#FF6384'],
+                    borderColor: '#fff',
+                    borderWidth: 2
+                }]
+            },
+            options: chartOptions
+        });
+
+        // RADAR CHART
+        new Chart(document.getElementById('radarChart'), {
+            type: 'radar',
+            data: {
+                labels: ['Sales Growth', 'Revenue Growth', 'Visibility', 'Traffic', 'Effectiveness'],
+                datasets: [{
+                    label: 'Average Performance',
+                    data: [43.37, 43.37, 8.14, 8.3, 22.28],
+                    borderColor: '#36A2EB',
+                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                    borderWidth: 2,
+                    pointBackgroundColor: '#36A2EB',
+                    pointBorderColor: '#fff',
+                    pointBorderWidth: 2,
+                    pointRadius: 5
+                }]
+            },
+            options: { ...chartOptions, scales: { r: { beginAtZero: true } } }
+        });
+    </script>
+</body>
+</html>

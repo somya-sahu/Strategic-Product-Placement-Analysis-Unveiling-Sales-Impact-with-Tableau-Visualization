@@ -1,0 +1,31 @@
+Product_ID,Product_Name,Category,Brand,Placement_Location,Placement_Type,Scene_Duration_Sec,Visibility_Score,Sales_Before,Sales_After,Revenue_Before,Revenue_After,Consumer_Age_Group,Consumer_Gender,Consumer_Income_Level,Media_Type,Episode_Movie,Air_Date,Region,Store_Location,Traffic_Score,Conversion_Rate_Before,Conversion_Rate_After
+P001,Smartphone X,Electronics,TechBrand,Center Screen,Visual,45,9.2,1200,1850,48000,74000,25-34,Male,High,TV Show,Episode 5,2023-01-15,North America,Online,8.5,2.3,4.1
+P002,Energy Drink,Beverages,PowerFuel,Background,Visual,12,4.5,3500,3800,10500,11400,18-24,Male,Medium,Movie,Action Movie A,2023-02-20,Europe,Store Aisle 3,7.2,3.5,3.8
+P003,Luxury Watch,Accessories,TimeMaster,Close-up,Visual,30,9.8,450,720,135000,216000,35-44,Male,High,TV Show,Episode 12,2023-03-10,Asia,Store Front,9.1,1.8,3.2
+P004,Sports Shoes,Footwear,RunFast,Action Scene,Visual,25,8.1,2800,4200,112000,168000,18-24,Female,Medium,Movie,Sports Drama,2023-01-25,North America,Store Display,8.8,2.9,4.5
+P005,Laptop Pro,Electronics,TechBrand,Desk Scene,Visual,60,7.5,980,1450,98000,145000,25-34,Female,High,TV Show,Episode 8,2023-04-05,Europe,Online,7.9,2.1,3.6
+P006,Soft Drink,Beverages,FizzCo,Hand Held,Visual,18,8.9,5200,6800,15600,20400,18-24,Male,Low,Movie,Comedy Film,2023-02-14,Asia,Store Cooler,8.3,4.2,5.6
+P007,Designer Bag,Accessories,LuxStyle,Shoulder Carry,Visual,40,9.5,320,580,96000,174000,35-44,Female,High,TV Show,Episode 3,2023-05-12,North America,Store Window,9.4,1.5,2.9
+P008,Gaming Console,Electronics,GameTech,Living Room,Visual,35,6.8,1500,2100,450000,630000,18-24,Male,Medium,Movie,Sci-Fi Thriller,2023-03-22,Europe,Store Electronics,7.5,1.9,2.8
+P009,Protein Bar,Food,FitNutrition,Gym Scene,Visual,15,7.2,4100,5300,12300,15900,25-34,Female,Medium,TV Show,Episode 15,2023-06-08,Asia,Store Checkout,8.1,3.8,4.9
+P010,Sunglasses,Accessories,SunShield,Outdoor Scene,Visual,28,9.1,1800,2650,54000,79500,25-34,Male,Medium,Movie,Adventure Film,2023-04-18,North America,Store Display,8.7,2.6,3.9
+P011,Coffee Brand,Beverages,BrewMaster,Coffee Shop,Visual,22,8.4,6200,7900,18600,23700,35-44,Female,High,TV Show,Episode 7,2023-07-03,Europe,Store Shelf,8.2,4.5,5.8
+P012,Tablet Device,Electronics,TechBrand,Reading Scene,Visual,50,7.9,1100,1680,55000,84000,45-54,Female,High,Movie,Drama Film,2023-05-25,Asia,Online,7.6,2.2,3.4
+P013,Running Shoes,Footwear,SprintPro,Marathon Scene,Visual,32,9.3,3200,5100,128000,204000,18-24,Male,Medium,TV Show,Episode 20,2023-08-14,North America,Store Front,9.2,3.1,5.2
+P014,Energy Bar,Food,PowerSnack,Hiking Scene,Visual,14,6.9,3800,4500,11400,13500,25-34,Male,Medium,Movie,Outdoor Adventure,2023-06-30,Europe,Store Aisle 5,7.4,3.6,4.3
+P015,Perfume,Beauty,ScentLux,Romantic Scene,Visual,20,9.6,890,1420,44500,71000,35-44,Female,High,TV Show,Episode 10,2023-09-05,Asia,Store Cosmetics,9.3,1.7,3.1
+P016,Headphones,Electronics,AudioMax,Music Scene,Visual,38,8.6,2400,3600,72000,108000,18-24,Male,Medium,Movie,Music Biopic,2023-07-20,North America,Store Electronics,8.5,2.8,4.2
+P017,Yogurt,Food,HealthyChoice,Breakfast Scene,Visual,16,7.7,5500,6700,16500,20100,25-34,Female,Medium,TV Show,Episode 4,2023-10-12,Europe,Store Dairy,7.8,4.1,5.1
+P018,Smart Watch,Electronics,FitTrack,Fitness Scene,Visual,42,8.8,1650,2580,82500,129000,25-34,Female,High,Movie,Fitness Documentary,2023-08-28,Asia,Online,8.4,2.4,3.8
+P019,Beer Brand,Beverages,BrewCo,Bar Scene,Visual,26,8.2,7200,9100,21600,27300,25-34,Male,Medium,TV Show,Episode 18,2023-11-07,North America,Store Beverage,8.6,4.8,6.2
+P020,Backpack,Accessories,TravelGear,Travel Scene,Visual,34,7.4,2100,3150,63000,94500,18-24,Male,Low,Movie,Travel Adventure,2023-09-15,Europe,Store Luggage,7.7,2.7,4.1
+P021,Cereal Brand,Food,MorningCrunch,Kitchen Scene,Visual,19,6.5,6800,7800,20400,23400,35-44,Female,Medium,TV Show,Episode 2,2023-12-01,Asia,Store Aisle 1,7.3,4.3,5.2
+P022,Camera,Electronics,PhotoPro,Photography Scene,Visual,48,9.4,780,1290,78000,129000,35-44,Male,High,Movie,Photography Drama,2023-10-22,North America,Store Electronics,9.1,1.6,2.9
+P023,Sneakers,Footwear,UrbanStep,Street Scene,Visual,24,8.3,3600,5200,108000,156000,18-24,Female,Medium,TV Show,Episode 14,2023-11-18,Europe,Store Display,8.4,3.2,4.8
+P024,Chocolate Bar,Food,SweetTreats,Snack Scene,Visual,11,7.1,8200,9500,24600,28500,18-24,Male,Low,Movie,Teen Comedy,2023-11-05,Asia,Store Checkout,7.5,5.1,6.2
+P025,Jacket,Apparel,StyleWear,Fashion Scene,Visual,36,9.0,1200,1950,72000,117000,25-34,Female,High,TV Show,Episode 9,2024-01-10,North America,Store Clothing,8.9,2.0,3.5
+P026,Mineral Water,Beverages,PureH2O,Gym Scene,Visual,13,6.8,9500,11200,9500,11200,25-34,Male,Medium,Movie,Fitness Film,2023-12-15,Europe,Store Cooler,7.6,5.4,6.5
+P027,Lipstick,Beauty,GlamColor,Makeup Scene,Visual,21,9.7,1450,2380,43500,71400,25-34,Female,High,TV Show,Episode 11,2024-02-05,Asia,Store Cosmetics,9.5,1.9,3.4
+P028,Drone,Electronics,SkyTech,Aerial Scene,Visual,44,8.0,620,1050,62000,105000,25-34,Male,High,Movie,Tech Thriller,2024-01-20,North America,Online,8.1,1.4,2.6
+P029,Protein Shake,Beverages,MuscleFuel,Workout Scene,Visual,17,7.6,4800,6200,14400,18600,18-24,Male,Medium,TV Show,Episode 16,2024-03-08,Europe,Store Nutrition,8.0,3.9,5.3
+P030,Jeans,Apparel,DenimStyle,Casual Scene,Visual,29,8.5,2800,4100,84000,123000,18-24,Female,Medium,Movie,Coming of Age,2024-02-14,Asia,Store Clothing,8.3,3.0,4.6
