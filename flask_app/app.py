@@ -34,6 +34,10 @@ def dashboard():
 def story():
     return render_template('story.html')
 
+@app.route('/video')
+def video():
+    return render_template('video.html')
+
 @app.route('/api/summary')
 def get_summary():
     try:
