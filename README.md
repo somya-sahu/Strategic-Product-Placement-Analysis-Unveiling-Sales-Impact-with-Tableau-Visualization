@@ -1,5 +1,8 @@
 # Strategic Product Placement Analysis - Unveiling Sales Impact with Tableau Visualization
 
+## 🚀 Live Demo
+**[View Live Application](https://product-placement-analysis.onrender.com)**
+
 ## Quick Start Guide
 
 ### What This Project Does
@@ -33,6 +36,7 @@ Analyzes how strategic product placement impacts sales performance and consumer 
 ✅ **Story**: 8-scene narrative analysis  
 ✅ **Web Integration**: Flask application with API  
 ✅ **Documentation**: Complete step-by-step guide  
+✅ **Live Deployment**: Deployed on Render  
 
 ### Key Features
 
