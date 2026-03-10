@@ -21,7 +21,7 @@ def dashboard():
 def story():
     """Tableau story page"""
     return render_template('story.html')
-
+# API Endpoints
 @app.route('/api/summary')
 def get_summary():
     """API endpoint for summary statistics"""
