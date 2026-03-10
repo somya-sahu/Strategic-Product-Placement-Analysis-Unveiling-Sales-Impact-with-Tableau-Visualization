@@ -12,6 +12,15 @@ def index():
     """Main dashboard page"""
     return render_template('index.html')
 
+
+
+@app.route("/visualizations")
+def visualizations():
+    return render_template("visualizations.html")
+
+
+
+
 @app.route('/dashboard')
 def dashboard():
     """Tableau dashboard page"""
