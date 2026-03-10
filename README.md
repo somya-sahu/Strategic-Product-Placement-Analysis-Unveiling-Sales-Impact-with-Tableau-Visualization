@@ -1,7 +1,7 @@
 # Strategic Product Placement Analysis - Unveiling Sales Impact with Tableau Visualization
 
-## 🚀 Live Demo
-**[View Live Application](https://product-placement-analysis.onrender.com)**
+🚀 **Live Demo:**  
+👉 https://strategic-product-placement-analysis-wbnl.onrender.com/
 
 ## Quick Start Guide
 
