@@ -2,81 +2,305 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Story</title>
-</head>
-<body style="font-family: Arial; margin: 0; background: #f5f5f5;">
-    <div style="background: #2c3e50; color: white; padding: 20px;">
-        <h1 style="margin: 0;">Strategic Product Placement Analysis</h1>
-        <div style="margin-top: 10px;">
-            <a href="/" style="color: white; text-decoration: none; margin-right: 20px;">Home</a>
-            <a href="/visualizations" style="color: white; text-decoration: none; margin-right: 20px;">Visualizations</a>
-            <a href="/dashboard" style="color: white; text-decoration: none; margin-right: 20px;">Dashboard</a>
-            <a href="/story" style="color: white; text-decoration: none;">Story</a>
-        </div>
-    </div>
-    
-    <div style="max-width: 1000px; margin: 0 auto; padding: 20px;">
-        <div style="background: white; padding: 20px; border-radius: 8px;">
-            <h2 style="color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 10px;">Data Story: Strategic Product Placement Impact</h2>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Story - Strategic Product Placement Analysis</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            background: #f5f5f5;
+            line-height: 1.6;
+        }
+        
+        .navbar {
+            background: #2c3e50;
+            color: white;
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .navbar h1 {
+            margin: 0 0 1rem 0;
+            font-size: clamp(1.3rem, 5vw, 1.8rem);
+        }
+        
+        .nav-links {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: clamp(0.85rem, 2vw, 1rem);
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: background 0.3s;
+        }
+        
+        .nav-links a:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+        
+        .story-section {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        h2 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+            font-size: clamp(1.5rem, 4vw, 2rem);
+        }
+        
+        .scene {
+            background: #f9f9f9;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-left: 4px solid #3498db;
+            border-radius: 4px;
+        }
+        
+        .scene h3 {
+            color: #2c3e50;
+            margin: 0.5rem 0;
+            font-size: clamp(1.1rem, 3vw, 1.3rem);
+        }
+        
+        .scene p {
+            color: #555;
+            font-size: clamp(0.9rem, 2vw, 1rem);
+            margin: 0.5rem 0;
+        }
+        
+        .key-insight {
+            background: #e8f4f8;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-left: 3px solid #3498db;
+            border-radius: 4px;
+            font-size: clamp(0.9rem, 2vw, 1rem);
+        }
+        
+        .scene ul {
+            margin-left: 1.5rem;
+            line-height: 1.8;
+        }
+        
+        .scene li {
+            color: #555;
+            font-size: clamp(0.9rem, 2vw, 1rem);
+            margin: 0.5rem 0;
+        }
+        
+        .conclusion {
+            background: #d4edda;
+            padding: 1.5rem;
+            margin-top: 2rem;
+            border-left: 4px solid #28a745;
+            border-radius: 4px;
+        }
+        
+        .conclusion strong {
+            color: #155724;
+            font-size: clamp(1rem, 2vw, 1.1rem);
+        }
+        
+        .conclusion p {
+            color: #155724;
+            margin-top: 0.5rem;
+            font-size: clamp(0.9rem, 2vw, 1rem);
+        }
+        
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 0.75rem;
+            }
             
-            <div style="background: #f9f9f9; padding: 15px; margin: 15px 0; border-left: 4px solid #3498db;">
-                <h3 style="color: #2c3e50; margin: 5px 0;">Scene 1: Overview</h3>
+            .navbar h1 {
+                font-size: 1.3rem;
+                margin-bottom: 0.75rem;
+            }
+            
+            .nav-links {
+                gap: 0.5rem;
+            }
+            
+            .nav-links a {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.85rem;
+            }
+            
+            .container {
+                padding: 0.75rem;
+            }
+            
+            .story-section {
+                padding: 1rem;
+            }
+            
+            .scene {
+                padding: 1rem;
+                margin: 1rem 0;
+            }
+            
+            .key-insight {
+                padding: 0.75rem;
+                margin: 0.75rem 0;
+            }
+            
+            .conclusion {
+                padding: 1rem;
+                margin-top: 1.5rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .navbar {
+                padding: 0.5rem;
+            }
+            
+            .navbar h1 {
+                font-size: 1.1rem;
+                margin-bottom: 0.5rem;
+            }
+            
+            .nav-links {
+                flex-direction: column;
+                gap: 0.3rem;
+            }
+            
+            .nav-links a {
+                display: block;
+                text-align: center;
+                padding: 0.5rem;
+                font-size: 0.8rem;
+            }
+            
+            .container {
+                padding: 0.5rem;
+            }
+            
+            .story-section {
+                padding: 0.75rem;
+            }
+            
+            h2 {
+                font-size: 1.2rem;
+            }
+            
+            .scene {
+                padding: 0.75rem;
+                margin: 0.75rem 0;
+            }
+            
+            .scene h3 {
+                font-size: 1rem;
+            }
+            
+            .scene p {
+                font-size: 0.85rem;
+            }
+            
+            .key-insight {
+                padding: 0.75rem;
+                font-size: 0.85rem;
+            }
+            
+            .scene ul {
+                margin-left: 1rem;
+            }
+            
+            .scene li {
+                font-size: 0.85rem;
+            }
+            
+            .conclusion {
+                padding: 0.75rem;
+                margin-top: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <h1>Strategic Product Placement Analysis</h1>
+        <ul class="nav-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/visualizations">Visualizations</a></li>
+            <li><a href="/dashboard">Dashboard</a></li>
+            <li><a href="/story">Story</a></li>
+            <li><a href="/video">Video</a></li>
+        </ul>
+    </nav>
+    
+    <div class="container">
+        <div class="story-section">
+            <h2>📖 Data Story: Strategic Product Placement Impact</h2>
+            
+            <div class="scene">
+                <h3>Scene 1: Overview</h3>
                 <p>Analysis of 30 products across multiple categories and regions.</p>
-                <div style="background: #e8f4f8; padding: 10px; margin: 10px 0; border-left: 3px solid #3498db;">
-                    <strong>Finding:</strong> 43.37% average sales growth with $1,031,500 total revenue increase
-                </div>
+                <div class="key-insight"><strong>Finding:</strong> 43.37% average sales growth with $1,031,500 total revenue increase</div>
             </div>
 
-            <div style="background: #f9f9f9; padding: 15px; margin: 15px 0; border-left: 4px solid #3498db;">
-                <h3 style="color: #2c3e50; margin: 5px 0;">Scene 2: Category Analysis</h3>
+            <div class="scene">
+                <h3>Scene 2: Category Analysis</h3>
                 <p>Different product categories show varying performance levels.</p>
-                <div style="background: #e8f4f8; padding: 10px; margin: 10px 0; border-left: 3px solid #3498db;">
-                    <strong>Finding:</strong> Footwear leads at 75.3%, Accessories at 62.5%, Electronics at 45.5%
-                </div>
+                <div class="key-insight"><strong>Finding:</strong> Footwear leads at 75.3%, Accessories at 62.5%, Electronics at 45.5%</div>
             </div>
 
-            <div style="background: #f9f9f9; padding: 15px; margin: 15px 0; border-left: 4px solid #3498db;">
-                <h3 style="color: #2c3e50; margin: 5px 0;">Scene 3: Regional Insights</h3>
+            <div class="scene">
+                <h3>Scene 3: Regional Insights</h3>
                 <p>Geographic location significantly impacts placement effectiveness.</p>
-                <div style="background: #e8f4f8; padding: 10px; margin: 10px 0; border-left: 3px solid #3498db;">
-                    <strong>Finding:</strong> Regional performance varies by 2-3x for specific categories
-                </div>
+                <div class="key-insight"><strong>Finding:</strong> Regional performance varies by 2-3x for specific categories</div>
             </div>
 
-            <div style="background: #f9f9f9; padding: 15px; margin: 15px 0; border-left: 4px solid #3498db;">
-                <h3 style="color: #2c3e50; margin: 5px 0;">Scene 4: Consumer Demographics</h3>
+            <div class="scene">
+                <h3>Scene 4: Consumer Demographics</h3>
                 <p>Different age groups respond differently to placements.</p>
-                <div style="background: #e8f4f8; padding: 10px; margin: 10px 0; border-left: 3px solid #3498db;">
-                    <strong>Finding:</strong> 25-34 age group most responsive at 35% engagement
-                </div>
+                <div class="key-insight"><strong>Finding:</strong> 25-34 age group most responsive at 35% engagement</div>
             </div>
 
-            <div style="background: #f9f9f9; padding: 15px; margin: 15px 0; border-left: 4px solid #3498db;">
-                <h3 style="color: #2c3e50; margin: 5px 0;">Scene 5: Media Type Effectiveness</h3>
+            <div class="scene">
+                <h3>Scene 5: Media Type Effectiveness</h3>
                 <p>TV and movie placements produce different results.</p>
-                <div style="background: #e8f4f8; padding: 10px; margin: 10px 0; border-left: 3px solid #3498db;">
-                    <strong>Finding:</strong> Certain categories perform better in specific media channels
-                </div>
+                <div class="key-insight"><strong>Finding:</strong> Certain categories perform better in specific media channels</div>
             </div>
 
-            <div style="background: #f9f9f9; padding: 15px; margin: 15px 0; border-left: 4px solid #3498db;">
-                <h3 style="color: #2c3e50; margin: 5px 0;">Scene 6: Placement Strategy</h3>
+            <div class="scene">
+                <h3>Scene 6: Placement Strategy</h3>
                 <p>Location and visibility within content matter significantly.</p>
-                <div style="background: #e8f4f8; padding: 10px; margin: 10px 0; border-left: 3px solid #3498db;">
-                    <strong>Finding:</strong> High-visibility placements generate 2-3x higher sales impact
-                </div>
+                <div class="key-insight"><strong>Finding:</strong> High-visibility placements generate 2-3x higher sales impact</div>
             </div>
 
-            <div style="background: #f9f9f9; padding: 15px; margin: 15px 0; border-left: 4px solid #3498db;">
-                <h3 style="color: #2c3e50; margin: 5px 0;">Scene 7: ROI Insights</h3>
+            <div class="scene">
+                <h3>Scene 7: ROI Insights</h3>
                 <p>Return on investment analysis reveals best strategies.</p>
-                <div style="background: #e8f4f8; padding: 10px; margin: 10px 0; border-left: 3px solid #3498db;">
-                    <strong>Finding:</strong> Top performers achieve 150-300% ROI, Designer Bag at 81.25% growth
-                </div>
+                <div class="key-insight"><strong>Finding:</strong> Top performers achieve 150-300% ROI, Designer Bag at 81.25% growth</div>
             </div>
 
-            <div style="background: #f9f9f9; padding: 15px; margin: 15px 0; border-left: 4px solid #3498db;">
-                <h3 style="color: #2c3e50; margin: 5px 0;">Scene 8: Recommendations</h3>
+            <div class="scene">
+                <h3>Scene 8: Recommendations</h3>
                 <p><strong>Action Items:</strong></p>
                 <ul>
                     <li>Prioritize high-visibility placements for Footwear and Accessories targeting 25-34 age group</li>
@@ -87,9 +311,9 @@
                 </ul>
             </div>
 
-            <div style="background: #d4edda; padding: 15px; margin-top: 20px; border-left: 4px solid #28a745;">
-                <strong style="color: #155724;">Conclusion:</strong>
-                <p style="color: #155724; margin-top: 10px;">Strategic product placement is data-driven. By understanding category performance, demographics, regions, and media effectiveness, organizations can significantly improve ROI and market impact.</p>
+            <div class="conclusion">
+                <strong>Conclusion:</strong>
+                <p>Strategic product placement is data-driven. By understanding category performance, demographics, regions, and media effectiveness, organizations can significantly improve ROI and market impact.</p>
             </div>
         </div>
     </div>
